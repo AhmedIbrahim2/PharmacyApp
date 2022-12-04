@@ -23,6 +23,7 @@ class Home extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 // ignore: prefer_const_literals_to_create_immutables
                 children: [
+                  Text("Hello"),
                   Padding(
                     padding: const EdgeInsets.all(15.0),
                     child: Icon(

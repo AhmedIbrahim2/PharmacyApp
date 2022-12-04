@@ -1,12 +1,16 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, implementation_imports
 
+// ignore: unused_import
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+// ignore: unnecessary_import
 import 'package:flutter/src/widgets/framework.dart';
 
+// ignore: unnecessary_import
 import 'package:flutter/src/widgets/container.dart';
 import 'package:imagetotext/home.dart';
+// ignore: unused_import
 import 'package:imagetotext/prescription.dart';
 
 class FirstScreen extends StatelessWidget {

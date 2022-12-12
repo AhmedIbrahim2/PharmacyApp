@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:imagetotext/Veiw/notifications.dart';
 import 'package:imagetotext/alarm.dart';
 import 'package:imagetotext/prescription.dart';
 
@@ -14,7 +15,17 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        actions: [
+          IconButton(
+            onPressed: () {
+              Navigator.of(context).push(
+                  MaterialPageRoute(builder: (context) => notification()));
+            },
+            icon: Icon(Icons.notifications),
+          ),
+        ],
+      ),
       body: SingleChildScrollView(
         child: Container(
             height: size.height,

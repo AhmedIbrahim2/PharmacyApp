@@ -1,12 +1,12 @@
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
+// ignore_for_file: must_be_immutable
 
+import 'package:flutter/material.dart';
+
+// ignore: camel_case_types
 class alarm extends StatelessWidget {
   String value = '';
   @override
-  alarm(this.value);
+  alarm(this.value, {super.key});
 
   alarm.fromname();
   Widget build(BuildContext context) {

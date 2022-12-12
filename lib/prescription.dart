@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:imagetotext/alarm.dart';
 
 class prescription extends StatefulWidget {
   const prescription({super.key});
@@ -138,10 +139,17 @@ class _prescriptionState extends State<prescription> {
                                           color: Colors.grey,
                                         ),
                                       )))),
-                  )
+                  ),
                 ],
               ),
-            )
+            ),
+            ElevatedButton.icon(
+                onPressed: (() => Navigator.push(context,
+                        MaterialPageRoute(builder: (context) {
+                      return alarm(result);
+                    }))),
+                icon: Icon(Icons.alarm),
+                label: Text("Alarm"))
           ],
         ),
       ),

@@ -2,7 +2,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:imagetotext/FirstScreen.dart';
-import 'package:imagetotext/prescription.dart';
 
 void main() {
   runApp(const MyApp());

@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:imagetotext/alarm.dart';
 import 'package:imagetotext/prescription.dart';
 
 class Home extends StatelessWidget {
@@ -57,6 +58,16 @@ class Home extends StatelessWidget {
                       }))),
                   icon: Icon(Icons.medical_information),
                   label: Text("Prescriptions")),
+              SizedBox(
+                height: size.height / 30,
+              ),
+              ElevatedButton.icon(
+                  onPressed: (() => Navigator.push(context,
+                          MaterialPageRoute(builder: (context) {
+                        return alarm.fromname();
+                      }))),
+                  icon: Icon(Icons.alarm),
+                  label: Text("Alarm"))
             ])),
       ),
     );

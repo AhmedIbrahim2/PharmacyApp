@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, sort_child_properties_last
 
 import 'dart:io';
 
@@ -7,7 +7,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:imagetotext/alarm.dart';
+import 'package:imagetotext/Controller/ImagePick.dart';
+import 'package:imagetotext/Veiw/alarm.dart';
+
+import '../Controller/Ocr.dart';
 
 class prescription extends StatefulWidget {
   const prescription({super.key});
@@ -20,10 +23,11 @@ class _prescriptionState extends State<prescription> {
   String result = '';
   File? image;
   File? image1;
-  final imagepicker = new ImagePicker();
+  var imagepicker = new ImagePicker();
 
   uploadimage() async {
     var pickedimage = await imagepicker.pickImage(source: ImageSource.camera);
+
     setState(() {
       if (pickedimage != null) {
         image = File(pickedimage.path);
@@ -32,8 +36,9 @@ class _prescriptionState extends State<prescription> {
     });
   }
 
-  uploadimagefromgallary() async {
+  uploadfromgallary() async {
     var pickedimage = await imagepicker.pickImage(source: ImageSource.gallery);
+
     setState(() {
       if (pickedimage != null) {
         image = File(pickedimage.path);
@@ -48,7 +53,7 @@ class _prescriptionState extends State<prescription> {
     final TextRecognizer recognizer = FirebaseVision.instance.textRecognizer();
     VisionText visiontext = await recognizer.processImage(firebasevisionimage);
 
-    result = '';
+    result = 'Hello';
     setState(() {
       for (TextBlock block in visiontext.blocks) {
         final String txt = block.text;
@@ -115,7 +120,7 @@ class _prescriptionState extends State<prescription> {
                   Center(
                     child: TextButton(
                         onPressed: uploadimage,
-                        onLongPress: uploadimagefromgallary,
+                        onLongPress: uploadfromgallary,
                         child: Container(
                             margin: EdgeInsets.only(top: 25),
                             child: ColorFiltered(

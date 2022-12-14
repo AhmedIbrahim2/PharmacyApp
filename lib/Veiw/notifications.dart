@@ -8,54 +8,157 @@ class notification extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: Text("Notification Page")),
-        body: Column(
-          children: <Widget>[
-            Card(
-              elevation: 5,
-              child: Container(
-                width: double.infinity,
-                height: 70,
-                margin: EdgeInsets.all(10),
-                child: Text(
-                  "notification1",
+      appBar: AppBar(
+        title: Text("Notification Page"),
+      ),
+      body: Column(
+        children: <Widget>[
+          Card(
+            color: Colors.grey,
+            elevation: 5,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Container(
+                  margin: EdgeInsets.all(10),
+                  height: 70,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        "notification1",
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20,
+                        ),
+                      ),
+                      Text(
+                        "details of notification",
+                      ),
+                      Text(
+                        DateTime.now().toString(),
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-            ),
-            Card(
-              elevation: 5,
-              child: Container(
-                width: double.infinity,
-                height: 70,
-                margin: EdgeInsets.all(10),
-                child: Text(
-                  "notification2",
+                IconButton(
+                  onPressed: () {},
+                  icon: Icon(Icons.delete),
+                  color: Colors.blue,
                 ),
-              ),
+              ],
             ),
-            Card(
-              elevation: 5,
-              child: Container(
-                width: double.infinity,
-                height: 70,
-                margin: EdgeInsets.all(10),
-                child: Text(
-                  "notification3",
+          ),
+          Card(
+            color: Colors.grey,
+            elevation: 5,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Container(
+                  margin: EdgeInsets.all(10),
+                  height: 70,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        "notification2",
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20,
+                        ),
+                      ),
+                      Text(
+                        "details of notification",
+                      ),
+                      Text(
+                        DateTime.now().toString(),
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-            ),
-            Card(
-              elevation: 5,
-              child: Container(
-                width: double.infinity,
-                height: 70,
-                margin: EdgeInsets.all(10),
-                child: Text(
-                  "notification4",
+                IconButton(
+                  onPressed: () {},
+                  icon: Icon(Icons.delete),
+                  color: Colors.blue,
                 ),
-              ),
+              ],
             ),
-          ],
-        ));
+          ),
+          Card(
+            color: Colors.grey,
+            elevation: 5,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Container(
+                  margin: EdgeInsets.all(10),
+                  height: 70,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        "notification3",
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20,
+                        ),
+                      ),
+                      Text(
+                        "details of notification",
+                      ),
+                      Text(
+                        DateTime.now().toString(),
+                      ),
+                    ],
+                  ),
+                ),
+                IconButton(
+                  onPressed: () {},
+                  icon: Icon(Icons.delete),
+                  color: Colors.blue,
+                ),
+              ],
+            ),
+          ),
+          Card(
+            color: Colors.grey,
+            elevation: 5,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Container(
+                  margin: EdgeInsets.all(10),
+                  height: 70,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        "notification4",
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20,
+                        ),
+                      ),
+                      Text(
+                        "details of notification",
+                      ),
+                      Text(
+                        DateTime.now().toString(),
+                      ),
+                    ],
+                  ),
+                ),
+                IconButton(
+                  onPressed: () {},
+                  icon: Icon(Icons.delete),
+                  color: Colors.blue,
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
   }
 }

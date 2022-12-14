@@ -5,8 +5,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:imagetotext/Veiw/notifications.dart';
-import 'package:imagetotext/alarm.dart';
-import 'package:imagetotext/prescription.dart';
+import 'package:imagetotext/Veiw/alarm.dart';
+import 'package:imagetotext/Veiw/precesions-1.dart';
+import 'package:imagetotext/Veiw/prescription.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key});
@@ -35,7 +36,6 @@ class Home extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 // ignore: prefer_const_literals_to_create_immutables
                 children: [
-                  Text("Hello"),
                   Padding(
                     padding: const EdgeInsets.all(15.0),
                     child: Icon(
@@ -67,8 +67,8 @@ class Home extends StatelessWidget {
                           MaterialPageRoute(builder: (context) {
                         return prescription();
                       }))),
-                  icon: Icon(Icons.medical_information),
-                  label: Text("Prescriptions")),
+                  icon: Icon(Icons.document_scanner_rounded),
+                  label: Text("Read Prescription")),
               SizedBox(
                 height: size.height / 30,
               ),
@@ -78,7 +78,17 @@ class Home extends StatelessWidget {
                         return alarm.fromname();
                       }))),
                   icon: Icon(Icons.alarm),
-                  label: Text("Alarm"))
+                  label: Text("Alarm")),
+              SizedBox(
+                height: size.height / 30,
+              ),
+              ElevatedButton.icon(
+                  onPressed: (() => Navigator.push(context,
+                          MaterialPageRoute(builder: (context) {
+                        return AllPrescription();
+                      }))),
+                  icon: Icon(Icons.medical_information),
+                  label: Text("Prescriptions"))
             ])),
       ),
     );

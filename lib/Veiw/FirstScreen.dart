@@ -9,9 +9,9 @@ import 'package:flutter/src/widgets/framework.dart';
 
 // ignore: unnecessary_import
 import 'package:flutter/src/widgets/container.dart';
-import 'package:imagetotext/home.dart';
+import 'package:imagetotext/Veiw/home.dart';
 // ignore: unused_import
-import 'package:imagetotext/prescription.dart';
+import 'package:imagetotext/Veiw/prescription.dart';
 
 class FirstScreen extends StatelessWidget {
   const FirstScreen({super.key});

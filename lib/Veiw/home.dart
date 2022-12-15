@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, unnecessary_import, implementation_imports
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -7,10 +7,13 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:imagetotext/Veiw/notifications.dart';
 import 'package:imagetotext/Veiw/alarm.dart';
 import 'package:imagetotext/Veiw/precesions-1.dart';
-import 'package:imagetotext/Veiw/prescription.dart';
+import 'package:imagetotext/Veiw/scan_prescription.dart';
 
 class Home extends StatelessWidget {
-  const Home({super.key});
+  Home();
+
+  String value = '';
+  Home.fromname(this.value);
 
   @override
   Widget build(BuildContext context) {
@@ -60,7 +63,17 @@ class Home extends StatelessWidget {
                 ],
               ),
               SizedBox(
-                height: size.height / 30,
+                height: size.height / 40,
+              ),
+              Text(
+                "Hello " + value,
+                style: TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black),
+              ),
+              SizedBox(
+                height: size.height / 40,
               ),
               ElevatedButton.icon(
                   onPressed: (() => Navigator.push(context,
@@ -85,7 +98,7 @@ class Home extends StatelessWidget {
               ElevatedButton.icon(
                   onPressed: (() => Navigator.push(context,
                           MaterialPageRoute(builder: (context) {
-                        return AllPrescription();
+                        return AllPrescription.fromname();
                       }))),
                   icon: Icon(Icons.medical_information),
                   label: Text("Prescriptions"))

@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors, sort_child_properties_last
+// ignore_for_file: prefer_const_constructors, sort_child_properties_last, import_of_legacy_library_into_null_safe, implementation_imports, unused_import, unnecessary_import, unnecessary_new, duplicate_ignore
 
 import 'dart:io';
 
@@ -7,8 +7,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:image_picker/image_picker.dart';
+// ignore: unused_import
 import 'package:imagetotext/Controller/ImagePick.dart';
 import 'package:imagetotext/Veiw/alarm.dart';
+import 'package:imagetotext/Veiw/precesions-1.dart';
 
 import '../Controller/Ocr.dart';
 
@@ -19,6 +21,7 @@ class prescription extends StatefulWidget {
   State<prescription> createState() => _prescriptionState();
 }
 
+// ignore: camel_case_types
 class _prescriptionState extends State<prescription> {
   String result = '';
   File? image;
@@ -135,6 +138,7 @@ class _prescriptionState extends State<prescription> {
                                         height: 192,
                                         fit: BoxFit.fill,
                                       )
+                                    // ignore: sized_box_for_whitespace
                                     : Container(
                                         width: 240,
                                         height: 200,
@@ -151,7 +155,7 @@ class _prescriptionState extends State<prescription> {
             ElevatedButton.icon(
                 onPressed: (() => Navigator.push(context,
                         MaterialPageRoute(builder: (context) {
-                      return alarm(result);
+                      return AllPrescription(result);
                     }))),
                 icon: Icon(Icons.alarm),
                 label: Text("Alarm"))

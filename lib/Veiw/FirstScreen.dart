@@ -10,8 +10,9 @@ import 'package:flutter/src/widgets/framework.dart';
 // ignore: unnecessary_import
 import 'package:flutter/src/widgets/container.dart';
 import 'package:imagetotext/Veiw/home.dart';
+import 'package:imagetotext/Veiw/login/login.dart';
 // ignore: unused_import
-import 'package:imagetotext/Veiw/prescription.dart';
+import 'package:imagetotext/Veiw/scan_prescription.dart';
 
 class FirstScreen extends StatelessWidget {
   const FirstScreen({super.key});
@@ -69,7 +70,7 @@ class FirstScreen extends StatelessWidget {
     return InkWell(
       onTap: () =>
           Navigator.push(context, MaterialPageRoute(builder: (context) {
-        return Home();
+        return LoginPage();
       })),
       child: Container(
         height: size.height / 15,

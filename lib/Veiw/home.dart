@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors, unnecessary_import, implementation_imports
 
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
@@ -8,6 +9,8 @@ import 'package:imagetotext/Veiw/notifications.dart';
 import 'package:imagetotext/Veiw/alarm.dart';
 import 'package:imagetotext/Veiw/precesions-1.dart';
 import 'package:imagetotext/Veiw/scan_prescription.dart';
+
+import 'login1/login1.dart';
 
 class Home extends StatelessWidget {
   Home();
@@ -28,6 +31,14 @@ class Home extends StatelessWidget {
             },
             icon: Icon(Icons.notifications),
           ),
+          IconButton(
+            onPressed: () {
+              logout(context);
+            },
+            icon: Icon(
+              Icons.logout,
+            ),
+          )
         ],
       ),
       body: SingleChildScrollView(
@@ -106,4 +117,15 @@ class Home extends StatelessWidget {
       ),
     );
   }
+}
+
+Future<void> logout(BuildContext context) async {
+  CircularProgressIndicator();
+  await FirebaseAuth.instance.signOut();
+  Navigator.pushReplacement(
+    context,
+    MaterialPageRoute(
+      builder: (context) => LoginPage(),
+    ),
+  );
 }

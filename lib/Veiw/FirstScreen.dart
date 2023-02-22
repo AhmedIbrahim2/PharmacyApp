@@ -14,6 +14,8 @@ import 'package:imagetotext/Veiw/login/login.dart';
 // ignore: unused_import
 import 'package:imagetotext/Veiw/scan_prescription.dart';
 
+import 'login1/login1.dart';
+
 class FirstScreen extends StatelessWidget {
   const FirstScreen({super.key});
 

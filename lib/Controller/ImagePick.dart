@@ -5,11 +5,12 @@ import 'package:image_picker/image_picker.dart';
 import 'package:imagetotext/Controller/ocr.dart';
 
 class ImagePick {
-  static uploadimage1(ImagePicker imagepicker, File? image) async {
+  static Future uploadimage1(ImagePicker imagepicker, File? image) async {
     var pickedimage = await imagepicker.pickImage(source: ImageSource.camera);
 
     if (pickedimage != null) {
       image = File(pickedimage.path);
+      performImageLabeling(image);
     } else {}
   }
 
@@ -18,16 +19,17 @@ class ImagePick {
 
     if (pickedimage != null) {
       image1 = File(pickedimage.path);
+      String res = "";
     } else {}
   }
 
-  static performImageLabeling(File? image, String result) async {
+  static performImageLabeling(File? image) async {
     final FirebaseVisionImage firebasevisionimage =
         FirebaseVisionImage.fromFile(image);
     final TextRecognizer recognizer = FirebaseVision.instance.textRecognizer();
     VisionText visiontext = await recognizer.processImage(firebasevisionimage);
 
-    result = 'Hello guys';
+    String result = 'Hello guys';
 
     for (TextBlock block in visiontext.blocks) {
       final String txt = block.text;

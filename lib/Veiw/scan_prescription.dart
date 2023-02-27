@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors, sort_child_properties_last, import_of_legacy_library_into_null_safe, implementation_imports, unused_import, unnecessary_import, unnecessary_new, duplicate_ignore
+// ignore_for_file: prefer_const_constructors, sort_child_properties_last, import_of_legacy_library_into_null_safe, implementation_imports, unused_import, unnecessary_import, unnecessary_new, duplicate_ignore, camel_case_types
 
 import 'dart:io';
 
@@ -59,7 +59,6 @@ class _prescriptionState extends State<prescription> {
     result = 'Hello';
     setState(() {
       for (TextBlock block in visiontext.blocks) {
-        final String txt = block.text;
         for (TextLine line in block.lines) {
           for (TextElement element in line.elements) {
             // ignore: prefer_interpolation_to_compose_strings

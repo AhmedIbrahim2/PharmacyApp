@@ -10,7 +10,7 @@ import 'package:imagetotext/Veiw/alarm.dart';
 import 'package:imagetotext/Veiw/precesions-1.dart';
 import 'package:imagetotext/Veiw/scan_prescription.dart';
 
-import 'login1/login1.dart';
+import 'login/login1.dart';
 
 class Home extends StatelessWidget {
   Home();

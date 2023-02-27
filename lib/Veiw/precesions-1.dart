@@ -1,5 +1,5 @@
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
+// ignore_for_file: must_be_immutable
+
 import 'package:flutter/material.dart';
 import 'package:imagetotext/Veiw/alarms.dart';
 
@@ -14,7 +14,7 @@ class AllPrescription extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text("Precesions Page"),
+          title: const Text("Precesions Page"),
         ),
         body: Column(
           children: <Widget>[
@@ -26,18 +26,18 @@ class AllPrescription extends StatelessWidget {
                 width: double.infinity,
                 child: InkWell(
                   child: Container(
-                    margin: EdgeInsets.all(10),
+                    margin: const EdgeInsets.all(10),
                     child: Row(
                       children: [
                         Container(
                           width: 50,
                           height: double.infinity,
                           color: Colors.green,
-                          margin: EdgeInsets.fromLTRB(0, 0, 20, 0),
+                          margin: const EdgeInsets.fromLTRB(0, 0, 20, 0),
                         ),
                         Column(
                           children: [
-                            Text(
+                            const Text(
                               "precision 1",
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
@@ -53,15 +53,15 @@ class AllPrescription extends StatelessWidget {
                     ),
                   ),
                   onTap: () {
-                    Navigator.of(context).push(
-                        MaterialPageRoute(builder: (context) => AllAlarms()));
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => const AllAlarms()));
                   },
                 ),
               ),
             ),
             SingleChildScrollView(
               child: Container(
-                child: Text(
+                child: const Text(
                   "",
                   maxLines: 1,
                   style: TextStyle(
@@ -70,19 +70,19 @@ class AllPrescription extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             Container(
               height: 200,
-              padding: EdgeInsets.all(10),
+              padding: const EdgeInsets.all(10),
               decoration:
                   BoxDecoration(border: Border.all(color: Colors.black)),
               child: SingleChildScrollView(
                 child: Center(
                   child: Text(
                     value,
-                    style: TextStyle(fontSize: 20),
+                    style: const TextStyle(fontSize: 20),
                   ),
                 ),
               ),

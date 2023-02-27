@@ -1,5 +1,3 @@
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/material.dart';
 
 class Clock extends StatelessWidget {
@@ -9,13 +7,13 @@ class Clock extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Options Page"),
+        title: const Text("Options Page"),
       ),
       body: Column(
         children: [
           Card(
             elevation: 5,
-            child: Container(
+            child: SizedBox(
               width: double.infinity,
               height: 100,
               child: Row(
@@ -23,8 +21,9 @@ class Clock extends StatelessWidget {
                 children: [
                   Column(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    // ignore: prefer_const_literals_to_create_immutables
                     children: [
-                      Text(
+                      const Text(
                         "medicine",
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
@@ -32,7 +31,7 @@ class Clock extends StatelessWidget {
                           color: Colors.deepPurple,
                         ),
                       ),
-                      Text(
+                      const Text(
                         "7.50 AM",
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
@@ -45,7 +44,7 @@ class Clock extends StatelessWidget {
                     iconSize: 40,
                     color: Colors.blue,
                     onPressed: () {},
-                    icon: Icon(Icons.toggle_on_outlined),
+                    icon: const Icon(Icons.toggle_on_outlined),
                   ),
                 ],
               ),
@@ -57,19 +56,19 @@ class Clock extends StatelessWidget {
                 children: [
                   ElevatedButton(
                     onPressed: () {},
-                    child: Text(
+                    child: const Text(
                       "Fire",
                     ),
                   ),
                   ElevatedButton(
                     onPressed: () {},
-                    child: Text(
+                    child: const Text(
                       "Delete",
                     ),
                   ),
                   ElevatedButton(
                     onPressed: () {},
-                    child: Text(
+                    child: const Text(
                       "Adjust",
                     ),
                   ),

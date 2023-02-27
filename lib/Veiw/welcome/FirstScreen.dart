@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:imagetotext/Veiw/login/login1.dart';
+import 'package:imagetotext/Veiw/login/register.dart';
 
 import '../../animation/FadeAnimation.dart';
 
@@ -90,7 +91,7 @@ class FirstScreen extends StatelessWidget {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => LoginPage()));
+                                    builder: (context) => Register()));
                           },
                           color: Colors.yellow,
                           elevation: 0,

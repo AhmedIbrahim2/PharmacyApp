@@ -1,7 +1,7 @@
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/material.dart';
-import 'package:imagetotext/Veiw/clock.dart';
+import 'package:imagetotext/Veiw/patient/clock.dart';
 
 class AllAlarms extends StatelessWidget {
   const AllAlarms({super.key});

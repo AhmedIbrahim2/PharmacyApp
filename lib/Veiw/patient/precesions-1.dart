@@ -1,7 +1,8 @@
 // ignore_for_file: must_be_immutable
 
 import 'package:flutter/material.dart';
-import 'package:imagetotext/Veiw/alarms.dart';
+
+import 'alarms.dart';
 
 class AllPrescription extends StatelessWidget {
   String value = '';

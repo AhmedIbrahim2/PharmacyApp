@@ -8,6 +8,8 @@ import '../../animation/FadeAnimation.dart';
 import 'login1.dart';
 
 class Register extends StatefulWidget {
+  const Register({super.key});
+
   @override
   State<Register> createState() => _RegisterState();
 }
@@ -321,15 +323,15 @@ class _RegisterState extends State<Register> {
       children: <Widget>[
         Text(
           label,
-          style: TextStyle(
+          style: const TextStyle(
               fontSize: 15, fontWeight: FontWeight.w400, color: Colors.black87),
         ),
-        SizedBox(
+        const SizedBox(
           height: 5,
         ),
         TextField(
           obscureText: obscureText,
-          decoration: InputDecoration(
+          decoration: const InputDecoration(
             contentPadding: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
             enabledBorder:
                 OutlineInputBorder(borderSide: BorderSide(color: Colors.grey)),
@@ -337,7 +339,7 @@ class _RegisterState extends State<Register> {
                 OutlineInputBorder(borderSide: BorderSide(color: Colors.grey)),
           ),
         ),
-        SizedBox(
+        const SizedBox(
           height: 30,
         ),
       ],
@@ -345,7 +347,7 @@ class _RegisterState extends State<Register> {
   }
 
   void signUp(String email, String password, String rool) async {
-    CircularProgressIndicator();
+    const CircularProgressIndicator();
     if (_formkey.currentState!.validate()) {
       await _auth
           .createUserWithEmailAndPassword(email: email, password: password)

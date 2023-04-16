@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors, sort_child_properties_last, import_of_legacy_library_into_null_safe, implementation_imports, unused_import, unnecessary_import, unnecessary_new, duplicate_ignore, camel_case_types
+// ignore_for_file: prefer_const_constructors, sort_child_properties_last, import_of_legacy_library_into_null_safe, implementation_imports, unused_import, unnecessary_import, unnecessary_new, duplicate_ignore, camel_case_types, unnecessary_null_comparison
 
 import 'dart:io';
 
@@ -6,13 +6,14 @@ import 'package:firebase_ml_vision/firebase_ml_vision.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:image_cropper/image_cropper.dart';
 import 'package:image_picker/image_picker.dart';
 // ignore: unused_import
 import 'package:imagetotext/Controller/ImagePick.dart';
-import 'package:imagetotext/Veiw/alarm.dart';
-import 'package:imagetotext/Veiw/precesions-1.dart';
+import 'package:imagetotext/Veiw/patient/alarm.dart';
+import 'package:imagetotext/Veiw/patient/precesions-1.dart';
 
-import '../Controller/Ocr.dart';
+import '../../Controller/Ocr.dart';
 
 class prescription extends StatefulWidget {
   const prescription({super.key});
@@ -30,10 +31,11 @@ class _prescriptionState extends State<prescription> {
 
   uploadimage() async {
     var pickedimage = await imagepicker.pickImage(source: ImageSource.camera);
+    image = File(pickedimage!.path);
+    image = await _cropimage(imagefile: image!);
 
     setState(() {
       if (pickedimage != null) {
-        image = File(pickedimage.path);
         performImageLabeling();
       } else {}
     });
@@ -41,13 +43,20 @@ class _prescriptionState extends State<prescription> {
 
   uploadfromgallary() async {
     var pickedimage = await imagepicker.pickImage(source: ImageSource.gallery);
-
+    image = File(pickedimage!.path);
+    image = await _cropimage(imagefile: image!);
     setState(() {
       if (pickedimage != null) {
-        image = File(pickedimage.path);
         performImageLabeling();
       } else {}
     });
+  }
+
+  Future<File?> _cropimage({required File imagefile}) async {
+    CroppedFile? croppedimage =
+        await ImageCropper().cropImage(sourcePath: imagefile.path);
+    if (croppedimage == null) return null;
+    return File(croppedimage.path);
   }
 
   performImageLabeling() async {
@@ -66,6 +75,22 @@ class _prescriptionState extends State<prescription> {
           }
         }
         result += "\n\n";
+        print(result);
+      }
+
+      String timeRegex = r'\b(?:0?[1-9]|1[0-2]):[0-5]\d\s*[ap]\.?m\.?';
+      RegExp regExp = RegExp(timeRegex, caseSensitive: false);
+
+      String timeText = '';
+      for (TextBlock block in visiontext.blocks) {
+        for (TextLine line in block.lines) {
+          for (TextElement word in line.elements) {
+            String wordText = word.text;
+            if (regExp.hasMatch(wordText)) {
+              timeText += wordText + ' ';
+            }
+          }
+        }
       }
     });
   }

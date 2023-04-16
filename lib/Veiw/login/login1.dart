@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:imagetotext/Veiw/home.dart';
+import 'package:imagetotext/Veiw/patient/home.dart';
 import 'Student.dart';
 import 'Pharmcy.dart';
 import 'register.dart';
@@ -14,9 +14,47 @@ class LoginPage extends StatefulWidget {
   State<LoginPage> createState() => _LoginPageState();
 }
 
+var check = 0;
+_displayDialog(BuildContext context) async {
+  return showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          title: Text('No user found for that email.'),
+          actions: <Widget>[
+            new ElevatedButton(
+              child: new Text('SUBMIT'),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            )
+          ],
+        );
+      });
+}
+
+_displayDialog1(BuildContext context) async {
+  return showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          title: Text('Wrong password provided for that user.'),
+          actions: <Widget>[
+            new ElevatedButton(
+              child: new Text('SUBMIT'),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            )
+          ],
+        );
+      });
+}
+
 class _LoginPageState extends State<LoginPage> {
   bool _isObscure3 = true;
   bool visible = false;
+  var check = 0;
   final _formkey = GlobalKey<FormState>();
   final TextEditingController emailController = new TextEditingController();
   final TextEditingController passwordController = new TextEditingController();
@@ -168,12 +206,12 @@ class _LoginPageState extends State<LoginPage> {
                     FadeAnimation(
                         1.4,
                         Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 40),
+                          padding: const EdgeInsets.symmetric(horizontal: 40),
                           child: Container(
-                            padding: EdgeInsets.only(top: 3, left: 3),
+                            padding: const EdgeInsets.only(top: 3, left: 3),
                             decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(50),
-                                border: Border(
+                                border: const Border(
                                   bottom: BorderSide(color: Colors.black),
                                   top: BorderSide(color: Colors.black),
                                   left: BorderSide(color: Colors.black),
@@ -188,12 +226,17 @@ class _LoginPageState extends State<LoginPage> {
                                 });
                                 signIn(emailController.text,
                                     passwordController.text);
+                                if (check == 1) {
+                                  _displayDialog(context);
+                                } else if (check == 2) {
+                                  _displayDialog1(context);
+                                }
                               },
                               color: Colors.greenAccent,
                               elevation: 0,
                               shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(50)),
-                              child: Text(
+                              child: const Text(
                                 "Login",
                                 style: TextStyle(
                                     fontWeight: FontWeight.w600, fontSize: 18),
@@ -206,7 +249,7 @@ class _LoginPageState extends State<LoginPage> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
-                            Text("Don't have an account?"),
+                            const Text("Don't have an account?"),
                             MaterialButton(
                               onPressed: () {
                                 Navigator.pushReplacement(
@@ -216,7 +259,7 @@ class _LoginPageState extends State<LoginPage> {
                                   ),
                                 );
                               },
-                              child: Text(
+                              child: const Text(
                                 "Sign up",
                                 style: TextStyle(
                                     fontWeight: FontWeight.w600, fontSize: 18),
@@ -231,11 +274,11 @@ class _LoginPageState extends State<LoginPage> {
                   1.2,
                   Container(
                     height: MediaQuery.of(context).size.height / 3,
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                         image: DecorationImage(
                             image: AssetImage('asset/background.png'),
                             fit: BoxFit.cover)),
-                  ))
+                  )),
             ],
           ),
         ),
@@ -282,11 +325,15 @@ class _LoginPageState extends State<LoginPage> {
         );
         route();
       } on FirebaseAuthException catch (e) {
+        check = 1;
+        Text("Invalid Email Or password");
         if (e.code == 'user-not-found') {
-          Text("No user found for that email.");
+          const Text("No user found for that email.");
+          check = 1;
           print('No user found for that email.');
         } else if (e.code == 'wrong-password') {
-          Text("Wrong password provided for that user.");
+          check = 2;
+          const Text("Wrong password provided for that user.");
           print('Wrong password provided for that user.');
         }
       }

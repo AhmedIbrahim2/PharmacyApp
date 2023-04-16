@@ -1,11 +1,13 @@
+// ignore: file_names
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:imagetotext/Veiw/login/login1.dart';
 import 'package:imagetotext/Veiw/login/register.dart';
 
 import '../../animation/FadeAnimation.dart';
 
 class FirstScreen extends StatelessWidget {
+  const FirstScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -13,7 +15,7 @@ class FirstScreen extends StatelessWidget {
         child: Container(
           width: double.infinity,
           height: MediaQuery.of(context).size.height,
-          padding: EdgeInsets.symmetric(horizontal: 30, vertical: 50),
+          padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 50),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -22,12 +24,12 @@ class FirstScreen extends StatelessWidget {
                 children: <Widget>[
                   FadeAnimation(
                       1,
-                      Text(
+                      const Text(
                         "Welcome",
                         style: TextStyle(
                             fontWeight: FontWeight.bold, fontSize: 30),
                       )),
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
                   FadeAnimation(
@@ -43,7 +45,7 @@ class FirstScreen extends StatelessWidget {
                   1.4,
                   Container(
                     height: MediaQuery.of(context).size.height / 3,
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                         image: DecorationImage(
                             image: AssetImage('asset/help.png'))),
                   )),
@@ -61,24 +63,24 @@ class FirstScreen extends StatelessWidget {
                                   builder: (context) => LoginPage()));
                         },
                         shape: RoundedRectangleBorder(
-                            side: BorderSide(color: Colors.black),
+                            side: const BorderSide(color: Colors.black),
                             borderRadius: BorderRadius.circular(50)),
-                        child: Text(
+                        child: const Text(
                           "Login",
                           style: TextStyle(
                               fontWeight: FontWeight.w600, fontSize: 18),
                         ),
                       )),
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
                   FadeAnimation(
                       1.6,
                       Container(
-                        padding: EdgeInsets.only(top: 3, left: 3),
+                        padding: const EdgeInsets.only(top: 3, left: 3),
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(50),
-                            border: Border(
+                            border: const Border(
                               bottom: BorderSide(color: Colors.black),
                               top: BorderSide(color: Colors.black),
                               left: BorderSide(color: Colors.black),
@@ -97,7 +99,7 @@ class FirstScreen extends StatelessWidget {
                           elevation: 0,
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(50)),
-                          child: Text(
+                          child: const Text(
                             "Sign up",
                             style: TextStyle(
                                 fontWeight: FontWeight.w600, fontSize: 18),
